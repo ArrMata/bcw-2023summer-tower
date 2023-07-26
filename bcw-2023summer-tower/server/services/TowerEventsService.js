@@ -1,5 +1,5 @@
 import { dbContext } from "../db/DbContext";
-import { BadRequest } from "../utils/Errors";
+import { BadRequest, Forbidden } from "../utils/Errors";
 
 class TowerEventsService {
     async getEvents() {
@@ -22,6 +22,11 @@ class TowerEventsService {
 
     async editEvent(eventId, editBody) {
         const event = await this.getEventById(eventId)
+        if (event.isCanceled)
+            throw new BadRequest("This event is cancelled, you cannot edit it.")
+
+        if (event.creatorId != editBody.creatorId)
+            throw new Forbidden('You cannot edit an event that is not yours.')
         event.name = editBody.name || event.name
         event.description = editBody.description || event.description
         event.coverImg = editBody.coverimg || event.coverImg
@@ -33,9 +38,12 @@ class TowerEventsService {
         return event
     }
 
-    async cancelEvent(eventId) {
+    async cancelEvent(eventId, uid) {
         const event = await this.getEventById(eventId)
-        await event.remove()
+        if (event.creatorId.toString() != uid)
+            throw new Forbidden("You are not allowed to cancel an event that isn't yours.")
+        event.isCanceled = true
+        await event.save()
         return event
     }
 
