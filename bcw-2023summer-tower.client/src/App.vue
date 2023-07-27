@@ -8,52 +8,54 @@
   <!-- Modal Body -->
   <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
   <div class="modal fade" id="CreateEventForm" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" data-bs-theme="dark" >
           <h5 class="modal-title" id="modalTitleId">Create an Event!</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <form @submit.prevent="createEvent">
-            <div class="mb-3">
-              <label class="form-label">Name</label>
-              <input required minlength="3" maxlength="75" v-model="editable.name" type="text"  class="form-control" placeholder="Event Name...">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Description</label>
-              <input maxlength="1000" v-model="editable.description" type="text" class="form-control" placeholder="Event Description...">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Cover Image</label>
-              <input required type="url" maxlength="300" v-model="editable.coverImg" class="form-control" placeholder="Event Image...">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Location</label>
-              <input required type="text" maxlength="200" v-model="editable.location" class="form-control" placeholder="Event Location...">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Total Capacity</label>
-              <input required type="number" min="1" max="100000000" v-model="editable.capacity" class="form-control" placeholder="Event Capacity...">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Start Date and Time</label>
-              <input required type="date" v-model="editable.date">
-              <input required type="time" v-model="editable.time">
-            </div>
-            <div class="mb-3 text-dark">
-              <label class="form-label">Event Type</label>
-              <select v-model="editable.type" required class="form-select">
-                <option v-for="type in types" :key="type" :value="type">{{ type }}</option>
+          <div class="modal-body">
+                <form @submit.prevent="createEvent">
+                  <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <input required minlength="3" maxlength="75" v-model="editable.name" type="text"  class="form-control" placeholder="Event Name...">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input maxlength="1000" v-model="editable.description" type="text" class="form-control" placeholder="Event Description...">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Cover Image</label>
+                <input required type="url" maxlength="300" v-model="editable.coverImg" class="form-control" placeholder="Event Image...">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Location</label>
+                <input required type="text" maxlength="200" v-model="editable.location" class="form-control" placeholder="Event Location...">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Total Capacity</label>
+                <input required type="number" min="1" max="100000000" v-model="editable.capacity" class="form-control" placeholder="Event Capacity...">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Start Date and Time</label>
+                <div>
+                  <input required type="date" v-model="editable.date">
+                  <input required type="time" v-model="editable.time">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Event Type</label>
+                <select v-model="editable.type" required class="form-select">
+                  <option v-for="type in types" :key="type" :value="type">{{ type }}</option>
 
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+                </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -89,20 +91,30 @@ export default {
 :root{
   --text: #ffffff;
   --text-unselected: #c5c5c5;
-  --background: #303030;
+  --background: #222835;
   --primary: #9200b7;
-  --secondary: #525252;
+  --secondary: #354556;
   --accent: #e79fff;
+  --hover-highlight: rgba(128, 128, 128, 0.43);
 }
 
 main {
   background-color: var(--background);
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--text);
 }
 
-@media screen and (max-width: 768px) {
-  .sidebar {
-    min-height: auto;
-  }
+.color-primary {
+  color: var(--primary);
+}
+
+.divider {
+  font-weight: 300;
+}
+
+.modal-content {
+  background-color: var(--background);
+  color: var(--text);
 }
 
 // font-family: 'Lobster', cursive;

@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md flex-column justify-content-start col-md-2 col-12 px-md-3">
+    <nav class="navbar navbar-expand-md flex-column justify-content-start vh-md-100 col-md-2 col-12 px-md-3">
         <div class="row w-100">
             <div class="col-12 d-flex justify-content-md-start justify-content-between">
                 <h1><i class="mdi mdi-kangaroo"></i> Tower</h1>
@@ -78,11 +78,7 @@ export default {
 
     .link:hover {
         color: var(--text);
-        background-color: rgba(128, 128, 128, 0.43);
-    }
-
-    .divider {
-        font-weight: 300;
+        background-color: var(--hover-highlight);
     }
 
     .avatar {
@@ -129,6 +125,12 @@ export default {
     
     p{
         margin-bottom: 0;
+    }
+    
+    .vh-md-100{
+        @media screen and (min-width: 768px) {
+            height: 100dvh;
+        }
     }
 
 </style>

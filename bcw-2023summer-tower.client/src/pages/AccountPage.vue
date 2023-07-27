@@ -1,5 +1,5 @@
 <template>
-  <div class="row account-section m-0 text-light">
+  <div class="row account-section m-0 py-3 text-light">
     <h2>My Events</h2>
     <div v-for="te in towerEvents" :key="te.id" class="col-md-3 col-12 p-3">
       <RouterLink :to="{name: 'Event', params: {eventId: te.id}}"><EventCard :te="te"/></RouterLink>
