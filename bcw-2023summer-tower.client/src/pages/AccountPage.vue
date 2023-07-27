@@ -7,12 +7,12 @@
     <h2>My Upcoming Events</h2>
     <div v-for="ticket in tickets" :key="ticket.id" class="col-md-3 col-12 p-3">
       <RouterLink :to="{name: 'Event', params: {eventId: ticket.eventId}}"><EventCard :te="ticket.event"/></RouterLink>
-    </div>
+    </div> 
   </div>
 </template>
 
 <script>
-import { computed, onMounted, onUnmounted } from 'vue';
+import { computed, onMounted} from 'vue';
 import { AppState } from '../AppState';
 import { towerEventsService } from '../services/TowerEventsService';
 import { ticketsService } from '../services/TicketsService';
@@ -26,23 +26,15 @@ export default {
       await ticketsService.getAccountTickets()
     }
 
-    const clearTickets = () => {
-      ticketsService.clearTickets()
-    }
-
     onMounted(() => {
       getAccountEvents()
       getAccountTickets()
     })
 
-    onUnmounted(() => {
-      clearTickets()
-    })
-
     return {
       account: computed(() => AppState.account),
       towerEvents: computed(() => AppState.towerEvents),
-      tickets: computed(() => AppState.tickets)
+      tickets: computed(() => AppState.accountTickets)
     }
   }
 }

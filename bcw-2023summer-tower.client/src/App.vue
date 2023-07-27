@@ -1,7 +1,7 @@
 <template>
   <main class="container-fluid">
     <div class="row">
-      <Sidebar class="col-md-2 col-12 vh-100"/>
+      <Sidebar/>
       <router-view class="col-md-10 col-12"/>
     </div>
   </main>
@@ -88,6 +88,7 @@ export default {
 
 :root{
   --text: #ffffff;
+  --text-unselected: #c5c5c5;
   --background: #303030;
   --primary: #9200b7;
   --secondary: #525252;
@@ -96,6 +97,12 @@ export default {
 
 main {
   background-color: var(--background);
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    min-height: auto;
+  }
 }
 
 // font-family: 'Lobster', cursive;

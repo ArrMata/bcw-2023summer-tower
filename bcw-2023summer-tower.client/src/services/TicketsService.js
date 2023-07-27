@@ -39,15 +39,11 @@ class TicketsService {
     async getAccountTickets() {
         try {
             const res = await api.get('account/tickets')
-            AppState.tickets = res.data.map(t => new Ticket(t))
+            AppState.accountTickets = res.data.map(t => new Ticket(t))
         } catch (error) {
             logger.error(error)
             Pop.error(error.message)
         }
-    }
-
-    clearTickets() {
-        AppState.tickets = []
     }
 }
 
