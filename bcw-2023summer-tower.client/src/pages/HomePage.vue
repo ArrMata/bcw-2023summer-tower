@@ -18,8 +18,12 @@
         </div>
       </div>
     </div>
-    <div v-for="te in towerEvents" :key="te.id" class="col-md-3 col-12 py-3">
-      <RouterLink :to="{name: 'Event', params: {eventId: te.id}}"><EventCard :te="te"/></RouterLink>
+    <div class="col-12">
+      <div class="row">
+        <div v-for="te in towerEvents" :key="te.id" class="col-md-3 col-12 py-3">
+          <RouterLink :to="{name: 'Event', params: {eventId: te.id}}"><EventCard :te="te"/></RouterLink>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -59,7 +63,9 @@ export default {
 <style scoped lang="scss">
 .event-section {
   overflow-y: scroll;
-  max-height: 100vh;
+  height: 100vh;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 .hero-section {

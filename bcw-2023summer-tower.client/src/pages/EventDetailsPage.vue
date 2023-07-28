@@ -25,8 +25,8 @@
                                 <p v-if="!activeEvent.isCanceled" class="fs-2 mb-0"> {{ (activeEvent.capacity - activeEvent.ticketCount) + " spots left" }}</p>
                             </div>
                                 <div v-if="account.id">
-                                <button v-if="activeEvent.isCanceled" disabled class="btn btn-secondary fs-3"><i class="mdi mdi-account-cancel"></i>Event Cancelled</button>
-                                <button v-else-if="isAttending" @click="unattendEvent" class="btn btn-danger fs-3"><i class="mdi mdi-account-minus me-2"></i>Not Attending</button>
+                                <button v-if="isAttending" @click="unattendEvent" class="btn btn-danger fs-3"><i class="mdi mdi-account-minus me-2"></i>Not Attending</button>
+                                <button v-else-if="activeEvent.isCanceled" disabled class="btn btn-secondary fs-3"><i class="mdi mdi-account-cancel"></i>Event Cancelled</button>
                                 <button v-else-if="(activeEvent.capacity - activeEvent.ticketCount) == 0" disabled class="btn btn-secondary fs-3"><i class="mdi mdi-account-cancel"></i>Event At Capacity</button>
                                 <button v-else @click="attendEvent" class="btn btn-primary fs-3"><i class="mdi mdi-account-plus me-2"></i>Attend</button>
                             </div>

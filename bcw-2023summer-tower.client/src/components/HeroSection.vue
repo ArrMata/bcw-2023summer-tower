@@ -1,5 +1,5 @@
 <template>
-    <img class="hero-img" src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNyb3dkfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="Hero Image">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Hero Image">
     <div class="hero-content">
         <h2>Get <span class="color-primary">ahead</span> of the scalpers.</h2>
         <h2>Reserve your seat now for</h2>
