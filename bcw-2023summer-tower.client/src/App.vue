@@ -76,6 +76,7 @@ export default {
       types: ['concert', 'convention', 'sport', 'digital'],
       async createEvent() {
         const towerEvent = await towerEventsService.createEvent(editable.value)
+        editable.value = {}
         Modal.getOrCreateInstance('#CreateEventForm').hide()
         router.push({name: 'Event', params: { eventId:towerEvent.id }})
       }

@@ -70,7 +70,7 @@
 <script>
 import { useRoute } from 'vue-router';
 import { towerEventsService } from '../services/TowerEventsService';
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import { AppState } from '../AppState';
 import { commentsService } from '../services/CommentsService'
 import { ticketsService } from '../services/TicketsService'
@@ -92,7 +92,7 @@ export default {
             await ticketsService.getTicketsByEventId(route.params.eventId)
         }
         
-        onMounted(() => {
+        watchEffect(() => {
             getEvent()
             getComments()
             getTickets()
@@ -100,6 +100,7 @@ export default {
 
         return {
             account: computed(() => AppState.account),
+            route,
             activeEvent: computed(() => AppState.activeTowerEvent),
             comments: computed(() => AppState.comments),
             commentBody,
