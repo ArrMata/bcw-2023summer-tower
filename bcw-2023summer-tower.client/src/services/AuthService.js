@@ -20,7 +20,7 @@ export const AuthService = initialize({
   }
 })
 
-AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function() {
+AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function () {
   api.defaults.headers.authorization = AuthService.bearer
   api.interceptors.request.use(refreshAuthToken)
   AppState.user = AuthService.user

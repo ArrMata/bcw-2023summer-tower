@@ -16,7 +16,7 @@
                             <h3 class="fs-4"> {{ activeEvent.location }}</h3>
                             <h3 class="fs-4"> {{ activeEvent.startDate.toLocaleDateString() }}</h3>
                             <h3 class="fs-4"> {{ "Starting at "+ activeEvent.startDate.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"}) }}</h3>
-                            <p class="custom-fs-6"> {{ activeEvent.description }}</p>
+                            <p class="custom-fs-6 event-description"> {{ activeEvent.description }}</p>
                         </div>
                         <div class="mt-auto d-flex justify-content-between align-items-end">
                             <div>
@@ -189,6 +189,10 @@ export default {
     position: relative;
     z-index: 1;
     height: 100%;
+}
+
+.event-description { 
+    white-space: pre-wrap;
 }
 
 .event-img {
