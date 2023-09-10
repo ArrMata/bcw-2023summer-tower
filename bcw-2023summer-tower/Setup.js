@@ -37,7 +37,7 @@ export function RegisterControllers(router) {
       }
       const controller = new ControllerClass()
       if (controller instanceof BaseController) {
-        router.use('/tower' + controller.mount, controller.router)
+        router.use(controller.mount, controller.router)
       }
     } catch (e) {
       logger.error(
