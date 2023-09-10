@@ -5,9 +5,10 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [vue()],
   build: {
-    outDir: 'docs',
+    outDir: '../bcw-2023summer-tower/client',
     sourcemap: false
   },
+  base: '',
   server: {
     port: 8080
   }
